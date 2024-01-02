@@ -29,12 +29,11 @@
         <br>
         <button onclick="hitungLuas()">Hitung Luas</button>
         <p id="hasilLuas"></p>
+        <button class="button-resset" onclick="resetInput()">Reset</button>
 
-        <div>
-            <button class="button-resset" onclick="resetInput()">Reset</button>
-        </div>
     </div>
-    <div>
+
+    <div id="kelilingSegitiga" class="hidden">
         <h2>Perhitungan Keliling Segitiga</h2>
         <img src="assets/Keliling Segitiga.png" alt="Keliling Segitiga">
         <p>Keliling Segitiga = sisi1 + sisi2 + sisi3</p>
@@ -48,13 +47,8 @@
         <input type="number" id="sisi3" placeholder="Sisi 3" required>
         <br>
         <br>
-        <button onclick="hitungKeliling()">Hitung</button>
-        <p>Hasil: <span id="hasilKeliling"></span></p>
         <button onclick="hitungKeliling()">Hitung Keliling</button>
-        <p id="hasilKeliling"></p>
-    </div>
-
-    <div>
+        <p>Hasil: <span id="hasilKeliling"></span></p>
         <button class="button-resset" onclick="resetInput()">Reset</button>
     </div>
     </div>
@@ -94,7 +88,7 @@
             let keliling = parseFloat(sisi1) + parseFloat(sisi2) + parseFloat(sisi3);
 
             const hasilKeliling = document.getElementById('hasilKeliling');
-            hasilKeliling.textContent = 'Keliling Segitiga: ' + keliling.toFixed(2);
+            hasilKeliling.textContent = 'Keliling Segitiga: ' + keliling.toFixed(0);
         }
 
         function resetInput() {
