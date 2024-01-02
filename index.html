@@ -4,11 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator segitiga</title>
+    <title>Kalkulator Segitiga</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
+    <h1>Kalkulator Segitiga</h1>
+    <div id="content"></div>
+    /* utk tombol ganti kalkulatornya*/
+    <button onclick="ubahHalaman('luas')">Perhitungan Luas Segitiga</button>
+    <button onclick="ubahHalaman('keliling')">Perhitungan Keliling Segitiga</button>
 
+    <div id="luasSegitiga" class="hidden">
+        <h2>Perhitungan Luas Segitiga</h2>
+        <img src="assets/Rumus Luas Segitiga.png" alt="Luas Segitiga">
+        <p>Luas Segitiga = 0.5 * alas * tinggi</p>
+        <label for="alas">Alas:</label>
+        <input type="number" id="alas">
+        <label for="tinggi">Tinggi:</label>
+        <input type="number" id="tinggi">
+        <button onclick="hitungLuas()">Hitung Luas</button>
+        <p id="hasilLuas"></p>
+    </div>
+
+    <div id="kelilingSegitiga" class="hidden">
+        <h2>Perhitungan Keliling Segitiga</h2>
+        <img src="assets/Rumus Keliling Segitiga.png" alt="Keliling Segitiga">
+        <p>Keliling Segitiga = sisi1 + sisi2 + sisi3</p>
+        <label for="sisi1">Sisi 1:</label>
+        <input type="number" id="sisi1">
+        <label for="sisi2">Sisi 2:</label>
+        <input type="number" id="sisi2">
+        <label for="sisi3">Sisi 3:</label>
+        <input type="number" id="sisi3">
+        <button onclick="hitungKeliling()">Hitung Keliling</button>
+        <p id="hasilKeliling"></p>
+    </div>
+
+    <script>
+        function ubahHalaman(halaman) {
+            const content = document.getElementById('content');
+            content.textContent = halaman;
+
+            const luasSegitiga = document.getElementById('luasSegitiga');
+            const kelilingSegitiga = document.getElementById('kelilingSegitiga');
+
+            if (halaman === 'luas') {
+                luasSegitiga.classList.remove('hidden');
+                kelilingSegitiga.classList.add('hidden');
+            } else {
+                kelilingSegitiga.classList.remove('hidden');
+                luasSegitiga.classList.add('hidden');
+            }
+        }
+
+        function hitungLuas() {
+            const alas = document.getElementById('alas').value;
+            const tinggi = document.getElementById('tinggi').value;
+
+            const luas = 0.5 * alas * tinggi;
+
+            const hasilLuas = document.getElementById('hasilLuas');
+            hasilLuas.textContent = 'Luas Segitiga: ' + luas;
+        }
+
+        function hitungKeliling() {
+            const sisi1 = document.getElementById('sisi1').value;
+            const sisi2 = document.getElementById('sisi2').value;
+            const sisi3 = document.getElementById('sisi3').value;
+
+            const keliling = sisi1 + sisi2 + sisi3;
+
+            const hasilKeliling = document.getElementById('hasilKeliling');
+            hasilKeliling.textContent = 'Keliling Segitiga: ' + keliling;
+        }
+    </script>
 </body>
 
 </html>
